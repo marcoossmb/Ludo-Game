@@ -1,0 +1,123 @@
+@font-face {
+    font-family: "game";
+    src: url(../assets/fonts/Games.ttf);
+}
+@font-face {
+    font-family: "over";
+    src: url(../assets/fonts/game_over.ttf);
+}
+
+body{
+    background-image: url(../assets/images/fondo.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container{
+    margin: 0 auto;
+    width: 700px;
+}
+
+.tablero{
+    height: 700px;
+    background-color: white;
+    border: 15px solid brown;
+    border-radius: 10px;
+}
+
+.tablero__fila{
+    width: 101.2%;
+    height: 33.4%;
+    display: flex;
+}
+
+.tablero__columna{
+    width: 33%;
+    height: 100.4%;
+    display: flex;
+    position: relative;
+}
+
+.tablero__columna-esquina{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tablero__circulo{
+    width: 200px;
+    height: 200px;
+    border-radius: 200px;
+    border: 1px solid black;
+}
+.tablero__circulo--red{
+    background-color: red;
+}
+.tablero__circulo--blue{
+    background-color: cornflowerblue;
+}
+.tablero__circulo--green{
+    background-color: rgb(0, 165, 0);
+}
+.tablero__circulo--yellow{
+    background-color: yellow;
+}
+
+.columna__partes{
+    border: 1px solid black;
+    width: 33%;
+}
+.columna__partes--vert{
+    height: 33%;
+    width: 99%;
+    display: flex;
+}
+.tablero__columna-vert{
+    flex-direction: column;
+}
+
+.triangulo {
+    width: 0;
+    height: 0;
+    border-left: 39px solid transparent;
+    border-right: 39px solid transparent;
+    position: absolute;
+}
+.triangulo--red{
+    border-top: 100px solid red;
+    position: relative;
+    left: 32.5%;
+    top: 0.9px;
+}
+.triangulo--blue{
+    border-top: 39px solid transparent;
+    border-bottom: 39px solid transparent;
+    border-right: 100px solid cornflowerblue;
+    top: 33.5%;
+    left: 38.3%;
+}
+.triangulo--green{
+    border-top: 39px solid transparent;
+    border-bottom: 39px solid transparent;
+    border-left: 100px solid rgb(0, 165, 0);
+    top: 33.5%;
+    left: -0.9px;
+}
+.triangulo--yellow{
+    border-bottom: 100px solid yellow;
+    left: 32.5%;
+    top: 57.5%;
+}
+
+.columnas__casillas{
+    border: 1px solid black;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.columnas__casillas--horiz{
+    width: 45px;
+    height: 100%;
+}
