@@ -11,6 +11,7 @@ body{
     background-image: url(../assets/images/fondo.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+    display: flex;
 }
 
 .container{
@@ -26,7 +27,7 @@ body{
     border-radius: 10px;
     position: relative;
     width: 95%;
-    top: -5000px;
+    top: -1000px;
     
 }
 
@@ -141,13 +142,13 @@ body{
 		opacity: 0;
     }
     100%{
-        transform: translateY(5000px) scale(1);
+        transform: translateY(1000px) scale(1);
         opacity: 1;
     }
 }
 .ocultar{   
     animation-name:moverbienvenida;
-    animation-duration:3s;
+    animation-duration:2s;
     animation-fill-mode:forwards;
 }
 
@@ -174,7 +175,7 @@ body{
     margin-top: 100px;
     color: white;
     position: absolute;
-    float: left;
+    
 }
 
 .bienvenida__h1{
@@ -200,4 +201,76 @@ body{
 .reglas__text{
     font-family: 'Courier New', Courier, monospace;
     text-align: justify;
+}
+
+.fichas{
+    width: 40px;
+    height: 40px;
+    border: 2px solid black;
+    position: relative;
+    border-radius: 50px;
+}
+.ficha1{
+    left: 40px;
+    top: 50px;
+}
+.ficha2{
+    left: 115px;
+    top: 8px;
+}
+.ficha3{
+    left: 40px;
+    top: 30px;
+}
+.ficha4{
+    left: 115px;
+    top: -12px;
+}
+
+.juego{
+    width: 250px;
+    height: 100px;
+    background-color: brown;
+    position: relative;
+    top: 320px;
+    right: 250px;
+    border-radius: 10px;
+    display: none;
+}
+.juego__in{
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 30px;
+}
+
+.dado{
+    width: 40px;
+    height: 40px;
+}
+.dado__img{
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+.dado__button{
+    margin-top: 5px;
+    background-color: white;
+    border-radius: 5px;
+    padding: 5px;
+}
+.mostrardados{
+    display: block;
+    animation-name:moverdados;
+    animation-duration:3s;
+    animation-fill-mode:forwards;
+}
+@keyframes moverdados {
+    0%{
+        transform: translateY(-500px) scale(0);
+		opacity: 0;
+    }
+    100%{
+        transform: translateY(0px) scale(1);
+        opacity: 1;
+    }
 }

@@ -29,11 +29,15 @@
       </div>
     </div>
     
-    <div class="tablero ocult" id="tablero">
+    <div class="tablero" id="tablero">
 
       <div class="tablero__fila">
         <div class="tablero__columna tablero__columna-esquina">
           <div class="tablero__circulo tablero__circulo--red">
+            <div class="fichas ficha1 tablero__circulo--red"></div>
+            <div class="fichas ficha2 tablero__circulo--red"></div>
+            <div class="fichas ficha3 tablero__circulo--red"></div>
+            <div class="fichas ficha4 tablero__circulo--red"></div>
           </div>
         </div>
         <div class="tablero__columna">
@@ -61,6 +65,10 @@
         </div>
         <div class="tablero__columna tablero__columna-esquina">
           <div class="tablero__circulo tablero__circulo--blue">
+            <div class="fichas ficha1 tablero__circulo--blue"></div>
+            <div class="fichas ficha2 tablero__circulo--blue"></div>
+            <div class="fichas ficha3 tablero__circulo--blue"></div>
+            <div class="fichas ficha4 tablero__circulo--blue"></div>
           </div>
         </div>
       </div>
@@ -123,6 +131,10 @@
       <div class="tablero__fila">
         <div class="tablero__columna tablero__columna-esquina">
           <div class="tablero__circulo tablero__circulo--green">
+            <div class="fichas ficha1 tablero__circulo--green"></div>
+            <div class="fichas ficha2 tablero__circulo--green"></div>
+            <div class="fichas ficha3 tablero__circulo--green"></div>
+            <div class="fichas ficha4 tablero__circulo--green"></div>
           </div>
         </div>
         <div class="tablero__columna">
@@ -150,11 +162,29 @@
         </div>
         <div class="tablero__columna tablero__columna-esquina">
           <div class="tablero__circulo tablero__circulo--yellow">
+            <div class="fichas ficha1 tablero__circulo--yellow"></div>
+            <div class="fichas ficha2 tablero__circulo--yellow"></div>
+            <div class="fichas ficha3 tablero__circulo--yellow"></div>
+            <div class="fichas ficha4 tablero__circulo--yellow"></div>
           </div>
         </div>
       </div>
       
     </div>    
+  </div>
+
+  <div class="juego" id="juego">
+    <div class="juego__in">
+      <div class="dado">
+        <img id="dado1" src="./assets/images/1dado.PNG" alt="" class="dado__img">
+      </div>
+      <div class="dado">
+        <img id="dado2" src="./assets/images/6dado.PNG" alt="" class="dado__img">
+      </div>
+      <div class="dado">
+        <button id="dado__button" class="dado__button">Lanzar</button>
+      </div>
+    </div>
   </div>
   <script src="./js/script.js"></script>
 </body>
