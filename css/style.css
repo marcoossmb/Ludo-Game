@@ -16,6 +16,7 @@ body{
 .container{
     margin: 0 auto;
     width: 700px;
+    position: relative;
 }
 
 .tablero{
@@ -23,7 +24,10 @@ body{
     background-color: white;
     border: 15px solid brown;
     border-radius: 10px;
-    display: none;
+    position: relative;
+    width: 95%;
+    top: -5000px;
+    
 }
 
 .tablero__fila{
@@ -124,11 +128,40 @@ body{
 }
 
 .mostrar{
-    display: block;
+    
+
+    animation-name:movertablero;
+    animation-duration:3s;
+    animation-fill-mode:forwards;
 }
-.ocultar{
-    display: none;
+
+@keyframes movertablero {
+    0%{
+        transform: translateY(0px) scale(0);
+		opacity: 0;
+    }
+    100%{
+        transform: translateY(5000px) scale(1);
+        opacity: 1;
+    }
 }
+.ocultar{   
+    animation-name:moverbienvenida;
+    animation-duration:3s;
+    animation-fill-mode:forwards;
+}
+
+@keyframes moverbienvenida {
+    0%{
+        transform: translate(0px);
+        opacity: 1;
+    }
+    100%{
+        transform: translate(-1000px);
+		opacity: 0;
+    }
+}
+
 
 .bienvenida{
     background-color: rgba(0, 0, 139, 0.941);
@@ -140,7 +173,10 @@ body{
     border-radius: 20px;
     margin-top: 100px;
     color: white;
+    position: absolute;
+    float: left;
 }
+
 .bienvenida__h1{
     font-size: 3rem;
     text-align: center;
