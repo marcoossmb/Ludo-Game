@@ -23,6 +23,7 @@ body{
     background-color: white;
     border: 15px solid brown;
     border-radius: 10px;
+    display: none;
 }
 
 .tablero__fila{
@@ -120,4 +121,47 @@ body{
 .columnas__casillas--horiz{
     width: 45px;
     height: 100%;
+}
+
+.mostrar{
+    display: block;
+}
+.ocultar{
+    display: none;
+}
+
+.bienvenida{
+    background-color: rgba(0, 0, 139, 0.941);
+    font-family: "game";
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 20px;
+    margin-top: 100px;
+    color: white;
+}
+.bienvenida__h1{
+    font-size: 3rem;
+    text-align: center;
+    letter-spacing: 3px;
+}
+.bienvenida__text{
+    font-size: 1.6rem;
+}
+.bienvenida__button{
+    width: 200px;
+    border: 0;
+    border-radius: 10px;
+    padding: 10px;
+    color: rgba(0, 0, 139, 0.941);
+    background-color: white;
+    margin: 0 auto;
+}
+.bienvenida__h2{
+    letter-spacing: 3px;
+}
+.reglas__text{
+    font-family: 'Courier New', Courier, monospace;
+    text-align: justify;
 }

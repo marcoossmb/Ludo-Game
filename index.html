@@ -10,7 +10,24 @@
 <body>
   
   <div class="container">
-    <div class="tablero">
+
+    <div class="bienvenida">
+      <h1 class="bienvenida__h1">Bienvenido al Parchis</h1>
+      <p class="bienvenida__text">¡Es hora de comenzar una emocionante aventura!</p>
+      <h2 class="bienvenida__h2">Reglas</h2>
+      <p class="reglas__text">
+        El Parchís es un juego de mesa muy popular que se juega con un tablero en forma de cruz y fichas. A continuación, te presento las reglas básicas del Parchís: <br>
+        El objetivo es llevar tus 4 fichas al centro. <br>
+        Cada jugador tiene 4 fichas de un color. <br>
+        Se mueven según el dado. <br>
+        Si caes en una casilla ocupada, capturas la ficha enemiga. <br>
+        Debes sacar un 5 para mover una ficha desde el inicio. <br>
+        Gana el primer jugador en llevar todas sus fichas al centro.
+      </p>
+      <button class="bienvenida__button" id="bienvenida__button">Comenzar Juego</button>
+    </div>
+
+    <div class="tablero" id="tablero">
 
       <div class="tablero__fila">
         <div class="tablero__columna tablero__columna-esquina">
@@ -19,25 +36,25 @@
         </div>
         <div class="tablero__columna">
           <div class="columna__partes">
-            <div class="columnas__casillas"></div>
-            <div class="columnas__casillas"></div>
-            <div class="columnas__casillas"></div>
-            <div class="columnas__casillas"></div>
-            <div class="columnas__casillas"></div>
+            <div class="columnas__casillas">23</div>
+            <div class="columnas__casillas">24</div>
+            <div class="columnas__casillas tablero__circulo--red">25</div>
+            <div class="columnas__casillas">26</div>
+            <div class="columnas__casillas">27</div>
           </div>
           <div class="columna__partes">
-            <div class="columnas__casillas tablero__circulo--red"></div>
+            <div class="columnas__casillas tablero__circulo--red">22</div>
             <div class="columnas__casillas tablero__circulo--red"></div>
             <div class="columnas__casillas tablero__circulo--red"></div>
             <div class="columnas__casillas tablero__circulo--red"></div>
             <div class="columnas__casillas tablero__circulo--red"></div>
           </div>
           <div class="columna__partes">
-            <div class="columnas__casillas"></div>
-            <div class="columnas__casillas"></div>
-            <div class="columnas__casillas"></div>
-            <div class="columnas__casillas"></div>
-            <div class="columnas__casillas"></div>
+            <div class="columnas__casillas">21</div>
+            <div class="columnas__casillas">20</div>
+            <div class="columnas__casillas">19</div>
+            <div class="columnas__casillas">18</div>
+            <div class="columnas__casillas">17</div>
           </div>
         </div>
         <div class="tablero__columna tablero__columna-esquina">
@@ -49,25 +66,25 @@
       <div class="tablero__fila">
         <div class="tablero__columna tablero__columna-vert">
           <div class="columna__partes columna__partes--vert">
-            <div class="columnas__casillas columnas__casillas--horiz"></div>
-            <div class="columnas__casillas columnas__casillas--horiz"></div>
-            <div class="columnas__casillas columnas__casillas--horiz"></div>
-            <div class="columnas__casillas columnas__casillas--horiz"></div>
-            <div class="columnas__casillas columnas__casillas--horiz"></div>
+            <div class="columnas__casillas columnas__casillas--horiz">32</div>
+            <div class="columnas__casillas columnas__casillas--horiz">31</div>
+            <div class="columnas__casillas columnas__casillas--horiz">30</div>
+            <div class="columnas__casillas columnas__casillas--horiz">29</div>
+            <div class="columnas__casillas columnas__casillas--horiz">28</div>
           </div>
           <div class="columna__partes columna__partes--vert">
-            <div class="columnas__casillas columnas__casillas--horiz tablero__circulo--green"></div>
+            <div class="columnas__casillas columnas__casillas--horiz tablero__circulo--green">33</div>
             <div class="columnas__casillas columnas__casillas--horiz tablero__circulo--green"></div>
             <div class="columnas__casillas columnas__casillas--horiz tablero__circulo--green"></div>
             <div class="columnas__casillas columnas__casillas--horiz tablero__circulo--green"></div>
             <div class="columnas__casillas columnas__casillas--horiz tablero__circulo--green"></div>
           </div>
           <div class="columna__partes columna__partes--vert">
-            <div class="columnas__casillas columnas__casillas--horiz"></div>
-            <div class="columnas__casillas columnas__casillas--horiz"></div>
-            <div class="columnas__casillas columnas__casillas--horiz"></div>
-            <div class="columnas__casillas columnas__casillas--horiz"></div>
-            <div class="columnas__casillas columnas__casillas--horiz"></div>
+            <div class="columnas__casillas columnas__casillas--horiz">34</div>
+            <div class="columnas__casillas columnas__casillas--horiz">35</div>
+            <div class="columnas__casillas columnas__casillas--horiz tablero__circulo--green">36</div>
+            <div class="columnas__casillas columnas__casillas--horiz">37</div>
+            <div class="columnas__casillas columnas__casillas--horiz">38</div>
           </div>
         </div>
         <div class="tablero__columna tablero__columna--centro">
@@ -78,25 +95,25 @@
         </div>
         <div class="tablero__columna tablero__columna-vert">
           <div class="columna__partes columna__partes--vert">
-            <div class="columnas__casillas columnas__casillas--horiz"></div>
-            <div class="columnas__casillas columnas__casillas--horiz"></div>
-            <div class="columnas__casillas columnas__casillas--horiz"></div>
-            <div class="columnas__casillas columnas__casillas--horiz"></div>
-            <div class="columnas__casillas columnas__casillas--horiz"></div>
+            <div class="columnas__casillas columnas__casillas--horiz">16</div>
+            <div class="columnas__casillas columnas__casillas--horiz">15</div>
+            <div class="columnas__casillas columnas__casillas--horiz tablero__circulo--blue">14</div>
+            <div class="columnas__casillas columnas__casillas--horiz">13</div>
+            <div class="columnas__casillas columnas__casillas--horiz">12</div>
           </div>
           <div class="columna__partes columna__partes--vert">
             <div class="columnas__casillas columnas__casillas--horiz tablero__circulo--blue"></div>
             <div class="columnas__casillas columnas__casillas--horiz tablero__circulo--blue"></div>
             <div class="columnas__casillas columnas__casillas--horiz tablero__circulo--blue"></div>
             <div class="columnas__casillas columnas__casillas--horiz tablero__circulo--blue"></div>
-            <div class="columnas__casillas columnas__casillas--horiz tablero__circulo--blue"></div>
+            <div class="columnas__casillas columnas__casillas--horiz tablero__circulo--blue">11</div>
           </div>
           <div class="columna__partes columna__partes--vert">
-            <div class="columnas__casillas columnas__casillas--horiz"></div>
-            <div class="columnas__casillas columnas__casillas--horiz"></div>
-            <div class="columnas__casillas columnas__casillas--horiz"></div>
-            <div class="columnas__casillas columnas__casillas--horiz"></div>
-            <div class="columnas__casillas columnas__casillas--horiz"></div>
+            <div class="columnas__casillas columnas__casillas--horiz">6</div>
+            <div class="columnas__casillas columnas__casillas--horiz">7</div>
+            <div class="columnas__casillas columnas__casillas--horiz">8</div>
+            <div class="columnas__casillas columnas__casillas--horiz">9</div>
+            <div class="columnas__casillas columnas__casillas--horiz">10</div>
           </div>
         </div>
       </div>
@@ -108,23 +125,23 @@
         </div>
         <div class="tablero__columna">
           <div class="columna__partes">
-            <div class="columnas__casillas"></div>
-            <div class="columnas__casillas"></div>
-            <div class="columnas__casillas"></div>
-            <div class="columnas__casillas"></div>
-            <div class="columnas__casillas"></div>
+            <div class="columnas__casillas">39</div>
+            <div class="columnas__casillas">40</div>
+            <div class="columnas__casillas">41</div>
+            <div class="columnas__casillas">42</div>
+            <div class="columnas__casillas">43</div>
           </div>
           <div class="columna__partes">
             <div class="columnas__casillas tablero__circulo--yellow"></div>
             <div class="columnas__casillas tablero__circulo--yellow"></div>
             <div class="columnas__casillas tablero__circulo--yellow"></div>
             <div class="columnas__casillas tablero__circulo--yellow"></div>
-            <div class="columnas__casillas tablero__circulo--yellow"></div>
+            <div class="columnas__casillas tablero__circulo--yellow">44</div>
           </div>
           <div class="columna__partes">
             <div class="columnas__casillas">5</div>
             <div class="columnas__casillas">4</div>
-            <div class="columnas__casillas">3</div>
+            <div class="columnas__casillas tablero__circulo--yellow">3</div>
             <div class="columnas__casillas">2</div>
             <div class="columnas__casillas">1</div>
           </div>
