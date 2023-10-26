@@ -83,6 +83,8 @@ let posiciones = [
     ["64", "350", "708"]
 ]
 
+let imagenesDado =["1dado.PNG","2dado.PNG","3dado.PNG","4dado.PNG","5dado.PNG","6dado.PNG",]
+
 bienvenida__button.addEventListener("click",()=>{
     bienvenida.classList.add("ocultar")
     tablero.classList.add("mostrar")
@@ -98,6 +100,18 @@ bienvenida__button.addEventListener("click",()=>{
     ficha1amarilla.style.cssText = 'display:block; top:580px; left:840px; z-index:99;';
 })
 
+
+const lanzarDado = () => {
+    let random1 = Math.floor(Math.random() * imagenesDado.length)
+    let random2 = Math.floor(Math.random() * imagenesDado.length)
+
+    dado1.src="/assets/images/"+imagenesDado[random1]
+    dado2.src="/assets/images/"+imagenesDado[random2]
+}
+
 dado__button.addEventListener("click",()=>{
-    ficha1roja.style.cssText = 'display:block; top:350px; left:708px; z-index:99;';
+    lanzarDado();
+    let numDado1 = dado1.src.substring(36, 37)
+    let numDado2 = dado2.src.substring(36, 37)
+
 })
