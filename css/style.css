@@ -207,13 +207,26 @@ body{
     width: 40px;
     height: 40px;
     border: 2px solid black;
-    position: relative;
     border-radius: 50px;
+    position: absolute;
 }
-.ficha1{
-    left: 40px;
-    top: 50px;
+.mostrarfichas{
+    display: block;
+    animation-name:mostrarfichas;
+    animation-duration:3s;
+    animation-fill-mode:forwards;
 }
+@keyframes mostrarfichas {
+    0%{
+        transform: translateY(-500px) scale(0);
+		opacity: 0;
+    }
+    100%{
+        transform: translateY(0px) scale(1);
+        opacity: 1;
+    }
+}
+
 .ficha2{
     left: 115px;
     top: 8px;
@@ -233,7 +246,7 @@ body{
     background-color: brown;
     position: relative;
     top: 320px;
-    right: 250px;
+    right: 130px;
     border-radius: 10px;
     display: none;
 }
@@ -273,4 +286,24 @@ body{
         transform: translateY(0px) scale(1);
         opacity: 1;
     }
+}
+
+.fichas{
+    display: none;
+}
+.ficha1roja{
+    top: 0;
+    left: 0;
+}
+.ficha1azul{
+    top: 0;
+    left: 0;
+}
+.ficha1verde{
+    top: 0;
+    left: 0;
+}
+.ficha1amarillo{
+    top: 0;
+    left: 0;
 }
