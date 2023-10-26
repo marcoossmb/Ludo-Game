@@ -19,7 +19,7 @@ let ficha1amarilla = document.getElementById("ficha1amarilla")
 let posiciones = [
     ["1", "674", "690"],
     ["2", "628", "690"],
-    ["3", "582", "690"],
+    ["3", "585", "690"],
     ["4", "536", "690"],
     ["5", "490", "690"],
     ["6", "316", "752"],
@@ -94,12 +94,16 @@ bienvenida__button.addEventListener("click",()=>{
     ficha1verde.classList.add("mostrarfichas")
     ficha1amarilla.classList.add("mostrarfichas")
 
-    ficha1roja.style.cssText = 'display:block; top:118px; left:400px; z-index:99;';
-    ficha1azul.style.cssText = 'display:block; top:118px; left:840px; z-index:99;';
-    ficha1verde.style.cssText = 'display:block; top:580px; left:400px; z-index:99;';
-    ficha1amarilla.style.cssText = 'display:block; top:580px; left:840px; z-index:99;';
+    ficha1roja.classList.add("ficha1roja")
+    ficha1azul.classList.add("ficha1azul")
+    ficha1verde.classList.add("ficha1verde")
+    ficha1amarilla.classList.add("ficha1amarilla")
 })
 
+let numDado1
+let numDado2
+
+let contTirada = 0
 
 const lanzarDado = () => {
     let random1 = Math.floor(Math.random() * imagenesDado.length)
@@ -107,11 +111,51 @@ const lanzarDado = () => {
 
     dado1.src="/assets/images/"+imagenesDado[random1]
     dado2.src="/assets/images/"+imagenesDado[random2]
+
+    numDado1 = parseInt(dado1.src.substring(36, 37))
+    numDado2 = parseInt(dado2.src.substring(36, 37))
+    
+    sacarFichaCelda();
 }
 
 dado__button.addEventListener("click",()=>{
     lanzarDado();
-    let numDado1 = dado1.src.substring(36, 37)
-    let numDado2 = dado2.src.substring(36, 37)
-
 })
+
+let turnoActual = 0
+let colores = ["amarillo", "azul", "rojo", "verde"]
+
+const sacarFichaCelda = () => {
+    let colorActual = colores[turnoActual]
+    
+    if (colorActual === "amarillo") {
+        if (ficha1amarilla.classList.contains("val")) {
+            if (numDado1 == 5 || numDado2 == 5) {
+                ficha1amarilla.style.cssText = 'top:' + posiciones[2][1] + 'px; left:' + posiciones[2][2] + 'px;'
+                ficha1amarilla.classList.remove("val")
+            }
+        }
+    } else if (colorActual === "azul") {
+        if (ficha1azul.classList.contains("val")) {
+            if (numDado1 == 5 || numDado2 == 5) {
+                ficha1azul.style.cssText = 'top:' + posiciones[13][1] + 'px; left:' + posiciones[13][2] + 'px;'
+                ficha1azul.classList.remove("val")
+            }
+        }
+    } else if (colorActual === "rojo") {
+        if (ficha1roja.classList.contains("val")) {
+            if (numDado1 == 5 || numDado2 == 5) {
+                ficha1roja.style.cssText = 'top:' + posiciones[24][1] + 'px; left:' + posiciones[24][2] + 'px;'
+                ficha1roja.classList.remove("val")
+            }
+        }
+    } else if (colorActual === "verde") {
+        if (ficha1verde.classList.contains("val")) {
+            if (numDado1 == 5 || numDado2 == 5) {
+                ficha1verde.style.cssText = 'top:' + posiciones[35][1] + 'px; left:' + posiciones[35][2] + 'px;'
+                ficha1verde.classList.remove("val")
+            }
+        }
+    }
+    turnoActual = (turnoActual + 1) % colores.length
+}

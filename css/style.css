@@ -292,18 +292,26 @@ body{
     display: none;
 }
 .ficha1roja{
-    top: 0;
-    left: 0;
+    display:block; 
+    top:118px; 
+    left:400px; 
+    z-index:99;
 }
 .ficha1azul{
-    top: 0;
-    left: 0;
+    display:block;
+    top:118px;
+    left:840px;
+    z-index:99;
 }
 .ficha1verde{
-    top: 0;
-    left: 0;
+    display:block;
+    top:580px;
+    left:400px;
+    z-index:99;
 }
-.ficha1amarillo{
-    top: 0;
-    left: 0;
+.ficha1amarilla{
+    display:block;
+    top:580px;
+    left:840px;
+    z-index:99;
 }
