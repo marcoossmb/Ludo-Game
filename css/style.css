@@ -227,19 +227,6 @@ body{
     }
 }
 
-.ficha2{
-    left: 115px;
-    top: 8px;
-}
-.ficha3{
-    left: 40px;
-    top: 30px;
-}
-.ficha4{
-    left: 115px;
-    top: -12px;
-}
-
 .juego{
     width: 250px;
     height: 100px;
@@ -293,25 +280,25 @@ body{
 }
 .ficha1roja{
     display:block; 
-    top:118px; 
-    left:400px; 
+    top:96px; 
+    left:90px; 
     z-index:99;
 }
 .ficha1azul{
     display:block;
-    top:118px;
-    left:840px;
+    top:96px;
+    left:530px;
     z-index:99;
 }
 .ficha1verde{
     display:block;
-    top:580px;
-    left:400px;
+    top:563px;
+    left:90px;
     z-index:99;
 }
 .ficha1amarilla{
     display:block;
-    top:580px;
-    left:840px;
+    top:563px;
+    left:530px;
     z-index:99;
 }
