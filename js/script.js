@@ -271,8 +271,8 @@ bienvenida__button.addEventListener("click",()=>{
     ficha1amarilla.classList.add("ficha1amarilla")
 })
 
-let numDado1
-let numDado2
+let numDado1 = 0
+let numDado2 = 0
 
 let contTirada = 0
 
@@ -283,8 +283,8 @@ const lanzarDado = () => {
     dado1.src="./assets/images/"+imagenesDado[random1]
     dado2.src="./assets/images/"+imagenesDado[random2]
 
-    numDado1 = parseInt(dado1.src.substring(36, 37))
-    numDado2 = parseInt(dado2.src.substring(36, 37))
+    numDado1 = parseInt(imagenesDado[random1].substring(0,1))
+    numDado2 = parseInt(imagenesDado[random2].substring(0,1))
     
     moverFicha(numDado1, numDado2);
 }
