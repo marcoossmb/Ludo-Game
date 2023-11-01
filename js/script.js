@@ -7,6 +7,7 @@ let dado2 = document.getElementById("dado2")
 let dado__button = document.getElementById("dado__button") 
 let ganador = document.getElementById("ganador")
 let ganador__text = document.getElementById("ganador__text")
+let ganador__button = document.getElementById("ganador__button")
 
 let ficha1roja = document.getElementById("ficha1roja")
 let ficha1azul = document.getElementById("ficha1azul")
@@ -485,3 +486,9 @@ const pantallaGanador = () => {
             }
     }
 }
+
+const volveraJugar = () => {
+    location.reload();
+}
+
+ganador__button.addEventListener("click",volveraJugar)
