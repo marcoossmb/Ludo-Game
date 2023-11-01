@@ -336,19 +336,19 @@ const moverFicha = (numDado1, numDado2) => {
 
         if (colorActual == "amarillo") {
             circulo__amarillo.classList.add("fichaamarillaback")
-            circulo__verde.classList.remove("fichaverdeback","fichaazulback","ficharojaback")
+            circulo__verde.classList.remove("fichaverdeback");circulo__azul.classList.remove("fichaazulback");circulo__rojo.classList.remove("ficharojaback")
             ficha.style.cssText = 'top:' + posicionesAmarillo[2][1] + 'px; left:' + posicionesAmarillo[2][2] + 'px;'
         } else if (colorActual == "azul"){
             circulo__azul.classList.add("fichaazulback")
-            circulo__amarillo.classList.remove("fichaamarillaback","fichaverdeback","ficharojaback")
+            circulo__amarillo.classList.remove("fichaamarillaback");circulo__rojo.classList.remove("ficharojaback");circulo__verde.classList.remove("fichaverdeback")
             ficha.style.cssText = 'top:' + posicionesAmarillo[13][1] + 'px; left:' + posicionesAmarillo[13][2] + 'px;'
         } else if (colorActual == "roja") {
             circulo__rojo.classList.add("ficharojaback")
-            circulo__azul.classList.remove("fichaazulback","fichaamarillaback","fichaverdeback")
+            circulo__azul.classList.remove("fichaazulback");circulo__amarillo.classList.remove("fichaamarillaback");circulo__verde.classList.remove("fichaverdeback")
             ficha.style.cssText = 'top:' + posicionesAmarillo[24][1] + 'px; left:' + posicionesAmarillo[24][2] + 'px;'
         } else if (colorActual == "verde") {
             circulo__verde.classList.add("fichaverdeback")
-            circulo__rojo.classList.remove("ficharojaback","fichaazulback","fichaamarillaback",)
+            circulo__rojo.classList.remove("ficharojaback");circulo__amarillo.classList.remove("fichaamarillaback");circulo__azul.classList.remove("fichaazulback")
             ficha.style.cssText = 'top:' + posicionesAmarillo[35][1] + 'px; left:' + posicionesAmarillo[35][2] + 'px;'
         }
 
@@ -358,7 +358,7 @@ const moverFicha = (numDado1, numDado2) => {
     } else 
         if (colorActual == "amarillo") {
             circulo__amarillo.classList.add("fichaamarillaback")
-            circulo__verde.classList.remove("fichaverdeback","fichaazulback","ficharojaback")
+            circulo__verde.classList.remove("fichaverdeback");circulo__azul.classList.remove("fichaazulback");circulo__rojo.classList.remove("ficharojaback")
             if (posicionesAmarillo && posActAmarillo !== undefined) {
                 let nuevaPosAmarillo = posActAmarillo+numDado1+numDado2
                 
@@ -381,7 +381,7 @@ const moverFicha = (numDado1, numDado2) => {
     } else
         if (colorActual == "azul") {
             circulo__azul.classList.add("fichaazulback")
-            circulo__amarillo.classList.remove("fichaamarillaback","fichaverdeback","ficharojaback")
+            circulo__amarillo.classList.remove("fichaamarillaback");circulo__rojo.classList.remove("ficharojaback");circulo__verde.classList.remove("fichaverdeback")
             if (posicionesAzul && posActAzul !== undefined) {
                 let nuevaPosAzul = posActAzul+numDado1+numDado2
                 
@@ -403,7 +403,7 @@ const moverFicha = (numDado1, numDado2) => {
     } else 
         if (colorActual == "roja") {
             circulo__rojo.classList.add("ficharojaback")
-            circulo__azul.classList.remove("fichaazulback","fichaamarillaback","fichaverdeback")
+            circulo__azul.classList.remove("fichaazulback");circulo__amarillo.classList.remove("fichaamarillaback");circulo__verde.classList.remove("fichaverdeback")
             if (posicionesRojo && posActRojo !== undefined) {
                 let nuevaPosRojo = posActRojo+numDado1+numDado2
                 
@@ -425,7 +425,7 @@ const moverFicha = (numDado1, numDado2) => {
     } else 
         if (colorActual == "verde") {
             circulo__verde.classList.add("fichaverdeback")
-            circulo__rojo.classList.remove("ficharojaback","fichaazulback","fichaamarillaback",)
+            circulo__rojo.classList.remove("ficharojaback");circulo__amarillo.classList.remove("fichaamarillaback");circulo__azul.classList.remove("fichaazulback")
             if (posicionesVerde && posActVerde !== undefined) {                
                 let nuevaPosVerde = posActVerde + numDado1 + numDado2
                 

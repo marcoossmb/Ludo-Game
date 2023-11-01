@@ -358,6 +358,8 @@ body{
     padding: 20px;
     border-radius: 20px;
     color: white;
+    text-align: center;
+    margin-left: 100px;
 
     position: absolute;
     top: -500px;
@@ -379,6 +381,12 @@ body{
         transform: translateY(700px) scale(1);
         opacity: 1;
     }
+}
+
+.ganador__h2{
+    font-size: 3rem;
+    letter-spacing: 3px;
+    margin-bottom: 0;
 }
 
 .ganador__text{
