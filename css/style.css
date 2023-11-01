@@ -348,3 +348,40 @@ body{
 		opacity: 0;
     }
 }
+
+.ganador{
+    background-color: rgba(0, 0, 139, 0.941);
+    font-family: "game";
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 20px;
+    color: white;
+
+    position: absolute;
+    top: -500px;
+    width: 100%;
+}
+
+.mostrar__ganador{
+    display: block;
+    animation-name:mostrarganador;
+    animation-duration:3s;
+    animation-fill-mode:forwards;
+}
+@keyframes mostrarganador {
+    0%{
+        transform: translateY(0px) scale(0);
+		opacity: 0;
+    }
+    100%{
+        transform: translateY(700px) scale(1);
+        opacity: 1;
+    }
+}
+
+.ganador__text{
+    font-size: 2rem;
+    letter-spacing: 3px;
+}

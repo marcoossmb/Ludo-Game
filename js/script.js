@@ -5,6 +5,8 @@ let juego = document.getElementById("juego")
 let dado1 = document.getElementById("dado1")
 let dado2 = document.getElementById("dado2")
 let dado__button = document.getElementById("dado__button") 
+let ganador = document.getElementById("ganador")
+let ganador__text = document.getElementById("ganador__text")
 
 let ficha1roja = document.getElementById("ficha1roja")
 let ficha1azul = document.getElementById("ficha1azul")
@@ -451,7 +453,9 @@ const sacarGanador = (ficha) => {
         
     } else {
         auxPuestos++
-        console.log(ficha.id)
+    }
+    if (auxPuestos==1) {
+        ficha.classList.add("fichaganador")
     }
 }
 
@@ -464,5 +468,20 @@ const pantallaGanador = () => {
         
             tablero.classList.add("ocultar__tablero")
             juego.classList.add("ocultar__datos")
+
+            ganador.classList.add("mostrar__ganador")
+            if (ficha1amarilla.classList.contains("fichaganador")) {
+                ganador__text.textContent = "Ha ganado el color: Amarillo"
+                ganador__text.style.color = "yellow"
+            } else if (ficha1azul.classList.contains("fichaganador")) {
+                ganador__text.textContent = "Ha ganado el color: Azul"
+                ganador__text.style.color = "#00F0FF"
+            } else if (ficha1roja.classList.contains("fichaganador")) {
+                ganador__text.textContent = "Ha ganado el color: Rojo"
+                ganador__text.style.color = "#FE170D";
+            } else if (ficha1verde.classList.contains("fichaganador")) {
+                ganador__text.textContent = "Ha ganado el color: Verde"
+                ganador__text.style.color = "#00FE0A";
+            }
     }
 }
