@@ -11,6 +11,11 @@ let ficha1azul = document.getElementById("ficha1azul")
 let ficha1verde = document.getElementById("ficha1verde")
 let ficha1amarilla = document.getElementById("ficha1amarilla")
 
+let circulo__rojo = document.getElementById("circulo__rojo")
+let circulo__azul = document.getElementById("circulo__azul")
+let circulo__verde = document.getElementById("circulo__verde")
+let circulo__amarillo = document.getElementById("circulo__amarillo")
+
 let posicionesAmarillo = [
     ["1", "657", "385"],
     ["2", "610", "385"],
@@ -291,6 +296,8 @@ const lanzarDado = () => {
 
 dado__button.addEventListener("click",()=>{
     lanzarDado();
+
+    pantallaGanador();
 })
 
 let turnoActual = 0
@@ -325,12 +332,20 @@ const moverFicha = (numDado1, numDado2) => {
       if (numDado1 === 5 || numDado2 === 5) {
 
         if (colorActual == "amarillo") {
+            circulo__amarillo.classList.add("fichaamarillaback")
+            circulo__verde.classList.remove("fichaverdeback","fichaazulback","ficharojaback")
             ficha.style.cssText = 'top:' + posicionesAmarillo[2][1] + 'px; left:' + posicionesAmarillo[2][2] + 'px;'
         } else if (colorActual == "azul"){
+            circulo__azul.classList.add("fichaazulback")
+            circulo__amarillo.classList.remove("fichaamarillaback","fichaverdeback","ficharojaback")
             ficha.style.cssText = 'top:' + posicionesAmarillo[13][1] + 'px; left:' + posicionesAmarillo[13][2] + 'px;'
         } else if (colorActual == "roja") {
+            circulo__rojo.classList.add("ficharojaback")
+            circulo__azul.classList.remove("fichaazulback","fichaamarillaback","fichaverdeback")
             ficha.style.cssText = 'top:' + posicionesAmarillo[24][1] + 'px; left:' + posicionesAmarillo[24][2] + 'px;'
         } else if (colorActual == "verde") {
+            circulo__verde.classList.add("fichaverdeback")
+            circulo__rojo.classList.remove("ficharojaback","fichaazulback","fichaamarillaback",)
             ficha.style.cssText = 'top:' + posicionesAmarillo[35][1] + 'px; left:' + posicionesAmarillo[35][2] + 'px;'
         }
 
@@ -339,7 +354,8 @@ const moverFicha = (numDado1, numDado2) => {
 
     } else 
         if (colorActual == "amarillo") {
-            
+            circulo__amarillo.classList.add("fichaamarillaback")
+            circulo__verde.classList.remove("fichaverdeback","fichaazulback","ficharojaback")
             if (posicionesAmarillo && posActAmarillo !== undefined) {
                 let nuevaPosAmarillo = posActAmarillo+numDado1+numDado2
                 
@@ -349,16 +365,20 @@ const moverFicha = (numDado1, numDado2) => {
                 } else {
                     turnoActual = (turnoActual + 1) % colores.length
                     let index = colores.indexOf("amarillo")
+                    circulo__amarillo.classList.remove("fichaamarillaback")
 
                     if (index !== -1) {
                         colores.splice(index, 1)
+                        ficha.classList.remove("aux");
+                        sacarGanador(ficha);
                     }
                 }
             }
       
     } else
         if (colorActual == "azul") {
-            
+            circulo__azul.classList.add("fichaazulback")
+            circulo__amarillo.classList.remove("fichaamarillaback","fichaverdeback","ficharojaback")
             if (posicionesAzul && posActAzul !== undefined) {
                 let nuevaPosAzul = posActAzul+numDado1+numDado2
                 
@@ -368,15 +388,19 @@ const moverFicha = (numDado1, numDado2) => {
                 } else {
                     turnoActual = (turnoActual + 1) % colores.length
                     let index = colores.indexOf("azul")
+                    circulo__azul.classList.remove("fichaazulback")
 
                     if (index !== -1) {
                         colores.splice(index, 1)
+                        ficha.classList.remove("aux");
+                        sacarGanador(ficha);
                 }
             }
         }            
     } else 
         if (colorActual == "roja") {
-            
+            circulo__rojo.classList.add("ficharojaback")
+            circulo__azul.classList.remove("fichaazulback","fichaamarillaback","fichaverdeback")
             if (posicionesRojo && posActRojo !== undefined) {
                 let nuevaPosRojo = posActRojo+numDado1+numDado2
                 
@@ -386,15 +410,19 @@ const moverFicha = (numDado1, numDado2) => {
                 } else {
                     turnoActual = (turnoActual + 1) % colores.length
                     let index = colores.indexOf("roja")
+                    circulo__rojo.classList.remove("ficharojaback")
 
                     if (index !== -1) {
                         colores.splice(index, 1)
+                        ficha.classList.remove("aux");
+                        sacarGanador(ficha);
                 }
             }           
         }
     } else 
         if (colorActual == "verde") {
-            
+            circulo__verde.classList.add("fichaverdeback")
+            circulo__rojo.classList.remove("ficharojaback","fichaazulback","fichaamarillaback",)
             if (posicionesVerde && posActVerde !== undefined) {                
                 let nuevaPosVerde = posActVerde + numDado1 + numDado2
                 
@@ -404,12 +432,37 @@ const moverFicha = (numDado1, numDado2) => {
                 } else {
                     turnoActual = (turnoActual + 1) % colores.length
                     let index = colores.indexOf("verde")
+                    circulo__verde.classList.remove("fichaverdeback")
 
                     if (index !== -1) {
                         colores.splice(index, 1)
+                        ficha.classList.remove("aux");
+                        sacarGanador(ficha);
                 }
             }
         }           
     }
     turnoActual = (turnoActual + 1) % colores.length;
+}
+
+let auxPuestos = 0
+const sacarGanador = (ficha) => {
+    if (ficha.classList.contains("aux")) {
+        
+    } else {
+        auxPuestos++
+        console.log(ficha.id)
+    }
+}
+
+const pantallaGanador = () => {
+    if (!ficha1amarilla.classList.contains("aux") &&
+        !ficha1azul.classList.contains("aux") &&
+        !ficha1roja.classList.contains("aux") &&
+        !ficha1verde.classList.contains("aux")) 
+        {
+        
+            tablero.classList.add("ocultar__tablero")
+            juego.classList.add("ocultar__datos")
+    }
 }

@@ -57,7 +57,7 @@ body{
     border: 1px solid black;
 }
 .tablero__circulo--red{
-    background-color: red;
+    background-color: rgb(202, 0, 0);
 }
 .tablero__circulo--blue{
     background-color: cornflowerblue;
@@ -66,7 +66,7 @@ body{
     background-color: rgb(0, 165, 0);
 }
 .tablero__circulo--yellow{
-    background-color: yellow;
+    background-color: rgb(229, 229, 0);
 }
 
 .columna__partes{
@@ -90,7 +90,7 @@ body{
     position: absolute;
 }
 .triangulo--red{
-    border-top: 100px solid red;
+    border-top: 100px solid rgb(202, 0, 0);
     position: relative;
     left: 32.5%;
     top: 0.9px;
@@ -110,7 +110,7 @@ body{
     left: -0.9px;
 }
 .triangulo--yellow{
-    border-bottom: 100px solid yellow;
+    border-bottom: 100px solid rgb(229, 229, 0);
     left: 32.5%;
     top: 57.5%;
 }
@@ -301,4 +301,50 @@ body{
     top:563px;
     left:530px;
     z-index:99;
+}
+
+.fichaamarillaback{
+    background-color: yellow;
+}
+.fichaazulback{
+    background-color: #00F0FF;
+}
+.ficharojaback{
+    background-color: #FE170D;
+}
+.fichaverdeback{
+    background-color: #00FE0A;
+}
+
+.ocultar__tablero{
+    animation-name:ocultartablero;
+    animation-duration:3s;
+    animation-fill-mode:forwards;
+}
+
+@keyframes ocultartablero {
+    0%{
+        transform: translateY(1000px) scale(1);
+        opacity: 1;
+    }
+    100%{
+        transform: translateY(0px) scale(0);
+		opacity: 0;
+    }
+}
+
+.ocultar__datos{
+    animation-name:ocultardatos;
+    animation-duration:3s;
+    animation-fill-mode:forwards;
+}
+@keyframes ocultardatos {
+    0%{
+        transform: translateY(0px) scale(1);
+        opacity: 1;
+    }
+    100%{
+        transform: translateY(-500px) scale(0);
+		opacity: 0;
+    }
 }
