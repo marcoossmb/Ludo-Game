@@ -91,6 +91,7 @@ bienvenida__button.addEventListener("click",()=>{
     ficha1azul.classList.add("ficha1azul")
     ficha1verde.classList.add("ficha1verde")
     ficha1amarilla.classList.add("ficha1amarilla")
+    
 })
 
 let numDado1 = 0
@@ -111,9 +112,7 @@ const lanzarDado = () => {
     moverFicha(numDado1, numDado2);
 }
 
-dado__button.addEventListener("click",()=>{
-    lanzarDado();  
-})
+
 
 let turnoActual = 0
 let colores = ["amarillo", "azul", "roja", "verde"]
@@ -124,30 +123,13 @@ let posActVerde = 0
 
 const moverFicha = (numDado1, numDado2) => {
     const colorActual = colores[turnoActual]
-        
+    console.log(colorActual)    
     let ficha
   
     switch (colorActual) {
       case "amarillo":
         ficha = ficha1amarilla
-        break;
-      case "azul":
-        ficha = ficha1azul
-        break;
-      case "roja":
-        ficha = ficha1roja
-        break;
-      case "verde":
-        ficha = ficha1verde
-        break;
-      default:
-        break;
-    }
-    
-    if (ficha && ficha.classList.contains("val")) {
-
-        if (colorActual == "amarillo") {
-            /* setTimeout(lanzarDado, 1000); */
+        if (ficha && ficha.classList.contains("val")) {
             circulo__amarillo.classList.add("fichaamarillaback")
             circulo__verde.classList.remove("fichaverdeback");circulo__azul.classList.remove("fichaazulback");circulo__rojo.classList.remove("ficharojaback")
             if (numDado1 === 5 || numDado2 === 5) {
@@ -155,49 +137,7 @@ const moverFicha = (numDado1, numDado2) => {
                 verificarColision(ficha, [ficha1azul, ficha1roja, ficha1verde]);
                 ficha.classList.remove("val");
             }
-            turnoActual = (turnoActual + 1) % colores.length
-        } 
-         
-        if (colorActual == "azul"){
-            setTimeout(lanzarDado, 1000);
-            circulo__azul.classList.add("fichaazulback")
-            circulo__amarillo.classList.remove("fichaamarillaback");circulo__rojo.classList.remove("ficharojaback");circulo__verde.classList.remove("fichaverdeback")
-            if (numDado1 === 5 || numDado2 === 5) {
-                ficha.style.cssText = 'top:' + posicionesAmarillo[13][1] + 'px; left:' + posicionesAmarillo[13][2] + 'px;'
-                verificarColision(ficha, [ficha1amarilla, ficha1roja, ficha1verde]);
-                ficha.classList.remove("val");
-            }
-            turnoActual = (turnoActual + 1) % colores.length
-        }
-        
-        if (colorActual == "roja") {
-            setTimeout(lanzarDado, 1000);
-            circulo__rojo.classList.add("ficharojaback")
-            circulo__azul.classList.remove("fichaazulback");circulo__amarillo.classList.remove("fichaamarillaback");circulo__verde.classList.remove("fichaverdeback")
-            if (numDado1 === 5 || numDado2 === 5) {
-                ficha.style.cssText = 'top:' + posicionesAmarillo[24][1] + 'px; left:' + posicionesAmarillo[24][2] + 'px;'
-                verificarColision(ficha, [ficha1azul, ficha1amarilla, ficha1verde]);
-                ficha.classList.remove("val");
-            }
-            turnoActual = (turnoActual + 1) % colores.length
-        }
-        
-        if (colorActual == "verde") {
-            setTimeout(lanzarDado, 1000);
-            circulo__verde.classList.add("fichaverdeback")
-            circulo__rojo.classList.remove("ficharojaback");circulo__amarillo.classList.remove("fichaamarillaback");circulo__azul.classList.remove("fichaazulback")
-            if (numDado1 === 5 || numDado2 === 5) {
-                ficha.style.cssText = 'top:' + posicionesAmarillo[35][1] + 'px; left:' + posicionesAmarillo[35][2] + 'px;'
-                verificarColision(ficha, [ficha1azul, ficha1roja, ficha1amarilla]);
-                ficha.classList.remove("val");
-            }
-            turnoActual = (turnoActual + 1) % colores.length
-        }
-
-    } else 
-        if (colorActual == "amarillo") {
-            console.log(colorActual)
-            /* setTimeout(lanzarDado, 1000); */
+        } else {
             circulo__amarillo.classList.add("fichaamarillaback")
             circulo__verde.classList.remove("fichaverdeback");circulo__azul.classList.remove("fichaazulback");circulo__rojo.classList.remove("ficharojaback")
             if (posicionesAmarillo && posActAmarillo !== undefined) {
@@ -216,11 +156,22 @@ const moverFicha = (numDado1, numDado2) => {
                     sacarGanador(ficha);
                 }
             }
-        turnoActual = (turnoActual + 1) % colores.length
-      
-    } else
-        if (colorActual == "azul") {
-            console.log(colorActual)
+        }
+        turnoActual = (turnoActual + 1) % colores.length 
+        break;
+
+      case "azul":
+        ficha = ficha1azul
+        if (ficha && ficha.classList.contains("val")) {
+            setTimeout(lanzarDado, 1000);
+                circulo__azul.classList.add("fichaazulback")
+                circulo__amarillo.classList.remove("fichaamarillaback");circulo__rojo.classList.remove("ficharojaback");circulo__verde.classList.remove("fichaverdeback")
+                if (numDado1 === 5 || numDado2 === 5) {
+                    ficha.style.cssText = 'top:' + posicionesAmarillo[13][1] + 'px; left:' + posicionesAmarillo[13][2] + 'px;'
+                    verificarColision(ficha, [ficha1amarilla, ficha1roja, ficha1verde]);
+                    ficha.classList.remove("val");
+                }
+        } else {
             setTimeout(lanzarDado, 1000);
             circulo__azul.classList.add("fichaazulback")
             circulo__amarillo.classList.remove("fichaamarillaback");circulo__rojo.classList.remove("ficharojaback");circulo__verde.classList.remove("fichaverdeback")
@@ -239,10 +190,22 @@ const moverFicha = (numDado1, numDado2) => {
                     sacarGanador(ficha);
                 }
             }
-        turnoActual = (turnoActual + 1) % colores.length            
-    } else 
-        if (colorActual == "roja") {
-            console.log(colorActual)
+        }
+        turnoActual = (turnoActual + 1) % colores.length
+        break;
+
+      case "roja":
+        ficha = ficha1roja
+        if (ficha && ficha.classList.contains("val")) {
+            setTimeout(lanzarDado, 1000);
+            circulo__rojo.classList.add("ficharojaback")
+            circulo__azul.classList.remove("fichaazulback");circulo__amarillo.classList.remove("fichaamarillaback");circulo__verde.classList.remove("fichaverdeback")
+            if (numDado1 === 5 || numDado2 === 5) {
+                ficha.style.cssText = 'top:' + posicionesAmarillo[24][1] + 'px; left:' + posicionesAmarillo[24][2] + 'px;'
+                verificarColision(ficha, [ficha1azul, ficha1amarilla, ficha1verde]);
+                ficha.classList.remove("val");
+            }
+        } else {
             setTimeout(lanzarDado, 1000);
             circulo__rojo.classList.add("ficharojaback")
             circulo__azul.classList.remove("fichaazulback");circulo__amarillo.classList.remove("fichaamarillaback");circulo__verde.classList.remove("fichaverdeback")
@@ -261,10 +224,22 @@ const moverFicha = (numDado1, numDado2) => {
                     sacarGanador(ficha);
                 }           
             }
+        }
         turnoActual = (turnoActual + 1) % colores.length
-    } else 
-        if (colorActual == "verde") {
-            console.log(colorActual)
+        break;
+
+      case "verde":
+        ficha = ficha1verde
+        if (ficha && ficha.classList.contains("val")) {
+            setTimeout(lanzarDado, 1000);
+            circulo__verde.classList.add("fichaverdeback")
+            circulo__rojo.classList.remove("ficharojaback");circulo__amarillo.classList.remove("fichaamarillaback");circulo__azul.classList.remove("fichaazulback")
+            if (numDado1 === 5 || numDado2 === 5) {
+                ficha.style.cssText = 'top:' + posicionesAmarillo[35][1] + 'px; left:' + posicionesAmarillo[35][2] + 'px;'
+                verificarColision(ficha, [ficha1azul, ficha1roja, ficha1amarilla]);
+                ficha.classList.remove("val");
+            }
+        } else {
             setTimeout(lanzarDado, 1000);
             circulo__verde.classList.add("fichaverdeback")
             circulo__rojo.classList.remove("ficharojaback");circulo__amarillo.classList.remove("fichaamarillaback");circulo__azul.classList.remove("fichaazulback")
@@ -283,11 +258,16 @@ const moverFicha = (numDado1, numDado2) => {
                     sacarGanador(ficha);
                 }
             }
-        turnoActual = (turnoActual + 1) % colores.length           
         }
+        turnoActual = (turnoActual + 1) % colores.length
+        break;
+      default:
+        break;
+    }
+    
     pantallaGanador();
 }
-document.addEventListener("DOMContentLoaded",moverFicha)
+
 const verificarColision = (fichaActual, otrasFichas) => {
     let top = fichaActual.getBoundingClientRect().top
     let left = fichaActual.getBoundingClientRect().left
@@ -368,3 +348,11 @@ const volveraJugar = () => {
 }
 
 ganador__button.addEventListener("click",volveraJugar)
+
+document.addEventListener("DOMContentLoaded",moverFicha)
+
+dado__button.addEventListener("click", () => {
+    /* if (turnoActual === 0) {  */
+        lanzarDado();
+    /* } */
+});
