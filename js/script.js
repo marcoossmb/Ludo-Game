@@ -269,36 +269,35 @@ const moverFicha = (numDado1, numDado2) => {
 }
 
 const verificarColision = (fichaActual, otrasFichas) => {
-    let top = fichaActual.getBoundingClientRect().top
-    let left = fichaActual.getBoundingClientRect().left
-  
-    for (const otraFicha of otrasFichas) {
+    let primeraPos = fichaActual.getBoundingClientRect()
+    
+    for (const otraFicha of otrasFichas) {  
       if (fichaActual !== otraFicha) {
 
         let otraPos = otraFicha.getBoundingClientRect()
 
-        if (top === otraPos.top && left === otraPos.left) {
-        
-          if (otraFicha.id == "ficha1amarilla") {
-            otraFicha.style.cssText = 'top:563px; left:530px;'
-            ficha1amarilla.classList.add("val")
-            posActAmarillo = 0
-          }  
-          if (otraFicha.id == "ficha1azul") {
-            otraFicha.style.cssText = 'top:96px; left:530px;'
-            ficha1azul.classList.add("val")
-            posActAzul = 0
-          }
-          if (otraFicha.id == "ficha1roja") {
-            otraFicha.style.cssText = 'top:96px; left:90px;'
-            ficha1roja.classList.add("val")
-            posActRojo = 0
-          }
-          if (otraFicha.id == "ficha1verde") {
-            otraFicha.style.cssText = 'top:563px; left:90px;'
-            ficha1verde.classList.add("val")
-            posActVerde = 0
-          } 
+        if (primeraPos.top === otraPos.top && primeraPos.left === otraPos.left) {
+
+            if (otraFicha.id == "ficha1amarilla") {
+                otraFicha.style.cssText = 'top:563px; left:530px;'
+                ficha1amarilla.classList.add("val")
+                posActAmarillo = 0
+            }  
+            if (otraFicha.id == "ficha1azul") {
+                otraFicha.style.cssText = 'top:96px; left:530px;'
+                ficha1azul.classList.add("val")
+                posActAzul = 0
+            }
+            if (otraFicha.id == "ficha1roja") {
+                otraFicha.style.cssText = 'top:96px; left:90px;'
+                ficha1roja.classList.add("val")
+                posActRojo = 0
+            }
+            if (otraFicha.id == "ficha1verde") {
+                otraFicha.style.cssText = 'top:563px; left:90px;'
+                ficha1verde.classList.add("val")
+                posActVerde = 0
+            }
         }
       }
     }
