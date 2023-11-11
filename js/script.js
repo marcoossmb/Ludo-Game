@@ -20,6 +20,9 @@ let circulo__azul = document.getElementById("circulo__azul")
 let circulo__verde = document.getElementById("circulo__verde")
 let circulo__amarillo = document.getElementById("circulo__amarillo")
 
+// Creo un array para las posiciones de cada ficha 
+// ya que las fichas amarillas no entran en las casillas 
+// de color azul ni rojo ni verde y viceversa
 let posicionesAmarillo = [
     ["1", "657", "385"], ["2", "610", "385"], ["3", "563", "385"], ["4", "517", "385"], ["5", "470", "385"],
     ["6", "405", "445"], ["7", "405", "489"], ["8", "405", "533"], ["9", "405", "577"], ["10", "405", "621"],
@@ -79,6 +82,7 @@ let posicionesVerde = [
 
 let imagenesDado =["1dado.PNG","2dado.PNG","3dado.PNG","4dado.PNG","5dado.PNG","6dado.PNG",]
 
+// Oculto el menú de bienvenida y muestro el tablero y el juego
 bienvenida__button.addEventListener("click",()=>{
     bienvenida.classList.add("ocultar")
     tablero.classList.add("mostrar")
@@ -100,6 +104,8 @@ let numDado2 = 0
 
 let contTirada = 0
 
+// Función que cuando le das click al botón "lanzar"
+// genera numeros random para sacar dos dados aleatorios
 const lanzarDado = () => {
     let random1 = Math.floor(Math.random() * imagenesDado.length)
     let random2 = Math.floor(Math.random() * imagenesDado.length)
@@ -113,8 +119,6 @@ const lanzarDado = () => {
     moverFicha(numDado1, numDado2);
 }
 
-
-
 let turnoActual = 0
 let colores = ["amarillo", "azul", "roja", "verde"]
 let posActAmarillo = 2
@@ -122,22 +126,29 @@ let posActAzul = 0
 let posActRojo = 0
 let posActVerde = 0
 
+// Función que utilizo para saber en que turno estamos y
+// dependiendo de eso hacer una cosa u otra
 const moverFicha = (numDado1, numDado2) => {
-    const colorActual = colores[turnoActual]
-    console.log(colorActual)    
+    const colorActual = colores[turnoActual]    
     let ficha
   
     switch (colorActual) {
       case "amarillo":
         ficha = ficha1amarilla
+        //val es una clase css que utilizo en todas las fichas
+        //para saber si sigue en la celda o ya esta en juego
         if (ficha && ficha.classList.contains("val")) {
             sacarAmarillo(ficha);
 
         } else {
             moverAmarillo(ficha);
         }
+        // deshabilito el botón para que no haya bugs
         dado__button.disabled = true;
+        // pasar de turno
         turnoActual = (turnoActual + 1) % colores.length
+        // llamo a la funcion lanzarDado con 1 seg de retraso
+        // para que juegue la máquina
         setTimeout(lanzarDado, 1000);  
         break;
 
@@ -175,8 +186,12 @@ const moverFicha = (numDado1, numDado2) => {
         } else {
             moverVerde(ficha);
         }
+        // vuelvo a habilitar el dado para tener que volver a darle 
+        // para que se mueva el jugador amarillo
         dado__button.disabled = false;
         turnoActual = (turnoActual + 1) % colores.length
+        // si la ficha amarilla esta en la casilla final hago
+        // que se lance los dados y mueva el color azul y deshabilito el botón
         if (!ficha1amarilla.classList.contains("aux")) {
             dado__button.disabled = true;
             setTimeout(lanzarDado, 1000); 
@@ -184,11 +199,14 @@ const moverFicha = (numDado1, numDado2) => {
         break;
       default:
         break;
-    }
-    
+    } 
     pantallaGanador();
 }
 
+// esta es la misma lógica para todas las fichas
+// hago que se cambie el color del circulo de atrás para
+// para saber que es su turno y si alguno de los dos dados
+// es 5 la muevo si no paso al siguiente turno
 const sacarAmarillo = (ficha) => {
     circulo__amarillo.classList.add("fichaamarillaback")
     circulo__verde.classList.remove("fichaverdeback");circulo__azul.classList.remove("fichaazulback");circulo__rojo.classList.remove("ficharojaback")
@@ -198,6 +216,8 @@ const sacarAmarillo = (ficha) => {
         ficha.classList.remove("val");
     }
 }
+//si no tiene la calse auxiliar val los números que salgan en los dados
+//son los que se va a mover
 const moverAmarillo = (ficha) => {
     circulo__amarillo.classList.add("fichaamarillaback")
     circulo__verde.classList.remove("fichaverdeback");circulo__azul.classList.remove("fichaazulback");circulo__rojo.classList.remove("ficharojaback")
@@ -309,6 +329,10 @@ const moverVerde = (ficha) => {
     }
 }
 
+// Función que comprueba si dos fichas tienen la misma poscición
+// la última ficha se come a la primera y la manda a su posición
+// inicial y le añade la clase val (utilizo el getBoundingClientRect()
+// para coger el top y el left de las fichas)
 const verificarColision = (fichaActual, otrasFichas) => {
     let primeraPos = fichaActual.getBoundingClientRect()
     
@@ -344,6 +368,8 @@ const verificarColision = (fichaActual, otrasFichas) => {
     }
 }
 
+// aux es una clase css que utilizo para saber si ah llegado
+// la ficha a su casilla final
 let auxPuestos = 0
 const sacarGanador = (ficha) => {
     if (ficha.classList.contains("aux")) {
@@ -356,6 +382,9 @@ const sacarGanador = (ficha) => {
     }
 }
 
+// si ninguna de las fichas contiene aux significa que todas
+// han llegado a su posición final entonces oculto el tablero
+// y muestro la pantalla del ganador 
 const pantallaGanador = () => {
     if (!ficha1amarilla.classList.contains("aux") &&
         !ficha1azul.classList.contains("aux") &&
@@ -367,6 +396,7 @@ const pantallaGanador = () => {
             juego.classList.add("ocultar__datos")
 
             ganador.classList.add("mostrar__ganador")
+            
             if (ficha1amarilla.classList.contains("fichaganador")) {
                 ganador__text.textContent = "Ha ganado el jugador"
                 ganador__text.style.color = "yellow"
