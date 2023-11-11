@@ -8,6 +8,7 @@ let dado__button = document.getElementById("dado__button")
 let ganador = document.getElementById("ganador")
 let ganador__text = document.getElementById("ganador__text")
 let ganador__button = document.getElementById("ganador__button")
+let ganador__h2 = document.getElementById("ganador__h2")
 
 let ficha1roja = document.getElementById("ficha1roja")
 let ficha1azul = document.getElementById("ficha1azul")
@@ -135,10 +136,13 @@ const moverFicha = (numDado1, numDado2) => {
         } else {
             moverAmarillo(ficha);
         }
-        turnoActual = (turnoActual + 1) % colores.length   
+        dado__button.disabled = true;
+        turnoActual = (turnoActual + 1) % colores.length
+        setTimeout(lanzarDado, 1000);  
         break;
 
       case "azul":
+        dado__button.disabled = true;
         ficha = ficha1azul
         if (ficha && ficha.classList.contains("val")) {
             sacarAzul(ficha);
@@ -147,9 +151,11 @@ const moverFicha = (numDado1, numDado2) => {
             moverAzul(ficha);
         }
         turnoActual = (turnoActual + 1) % colores.length
+        setTimeout(lanzarDado, 1000);  
         break;
 
       case "roja":
+        dado__button.disabled = true;
         ficha = ficha1roja
         if (ficha && ficha.classList.contains("val")) {
             sacarRoja(ficha);
@@ -158,16 +164,23 @@ const moverFicha = (numDado1, numDado2) => {
             moverRoja(ficha);
         }
         turnoActual = (turnoActual + 1) % colores.length
+        setTimeout(lanzarDado, 1000);  
         break;
 
       case "verde":
+        dado__button.disabled = true;
         ficha = ficha1verde
         if (ficha && ficha.classList.contains("val")) {
             sacarVerde(ficha);
         } else {
             moverVerde(ficha);
         }
+        dado__button.disabled = false;
         turnoActual = (turnoActual + 1) % colores.length
+        if (!ficha1amarilla.classList.contains("aux")) {
+            dado__button.disabled = true;
+            setTimeout(lanzarDado, 1000); 
+        }
         break;
       default:
         break;
@@ -207,7 +220,6 @@ const moverAmarillo = (ficha) => {
 }
 
 const sacarAzul = (ficha) => {
-    setTimeout(lanzarDado, 1000);
     circulo__azul.classList.add("fichaazulback")
     circulo__amarillo.classList.remove("fichaamarillaback");circulo__rojo.classList.remove("ficharojaback");circulo__verde.classList.remove("fichaverdeback")
     if (numDado1 === 5 || numDado2 === 5) {
@@ -219,7 +231,6 @@ const sacarAzul = (ficha) => {
 }
 
 const moverAzul = (ficha) => {
-    setTimeout(lanzarDado, 1000);
     circulo__azul.classList.add("fichaazulback")
     circulo__amarillo.classList.remove("fichaamarillaback");circulo__rojo.classList.remove("ficharojaback");circulo__verde.classList.remove("fichaverdeback")
     if (posicionesAzul && posActAzul !== undefined) {
@@ -241,7 +252,6 @@ const moverAzul = (ficha) => {
 }
 
 const sacarRoja = (ficha) => {
-    setTimeout(lanzarDado, 1000);
     circulo__rojo.classList.add("ficharojaback")
     circulo__azul.classList.remove("fichaazulback");circulo__amarillo.classList.remove("fichaamarillaback");circulo__verde.classList.remove("fichaverdeback")
     if (numDado1 === 5 || numDado2 === 5) {
@@ -251,7 +261,6 @@ const sacarRoja = (ficha) => {
     }
 }
 const moverRoja = (ficha) => {
-    setTimeout(lanzarDado, 1000);
     circulo__rojo.classList.add("ficharojaback")
     circulo__azul.classList.remove("fichaazulback");circulo__amarillo.classList.remove("fichaamarillaback");circulo__verde.classList.remove("fichaverdeback")
     if (posicionesRojo && posActRojo !== undefined) {
@@ -272,7 +281,6 @@ const moverRoja = (ficha) => {
 }
 
 const sacarVerde = (ficha) => {
-    setTimeout(lanzarDado, 1000);
     circulo__verde.classList.add("fichaverdeback")
     circulo__rojo.classList.remove("ficharojaback");circulo__amarillo.classList.remove("fichaamarillaback");circulo__azul.classList.remove("fichaazulback")
     if (numDado1 === 5 || numDado2 === 5) {
@@ -282,7 +290,6 @@ const sacarVerde = (ficha) => {
     }
 }
 const moverVerde = (ficha) => {
-    setTimeout(lanzarDado, 1000);
     circulo__verde.classList.add("fichaverdeback")
     circulo__rojo.classList.remove("ficharojaback");circulo__amarillo.classList.remove("fichaamarillaback");circulo__azul.classList.remove("fichaazulback")
     if (posicionesVerde && posActVerde !== undefined) {                
@@ -361,16 +368,19 @@ const pantallaGanador = () => {
 
             ganador.classList.add("mostrar__ganador")
             if (ficha1amarilla.classList.contains("fichaganador")) {
-                ganador__text.textContent = "Ha ganado el color: Amarillo"
+                ganador__text.textContent = "Ha ganado el jugador"
                 ganador__text.style.color = "yellow"
             } else if (ficha1azul.classList.contains("fichaganador")) {
-                ganador__text.textContent = "Ha ganado el color: Azul"
+                ganador__h2.textContent = "Game Over"
+                ganador__text.textContent = "Ha ganado la ficha azul"
                 ganador__text.style.color = "#00F0FF"
             } else if (ficha1roja.classList.contains("fichaganador")) {
-                ganador__text.textContent = "Ha ganado el color: Rojo"
+                ganador__h2.textContent = "Game Over"
+                ganador__text.textContent = "Ha ganado la ficha roja"
                 ganador__text.style.color = "#FE170D";
             } else if (ficha1verde.classList.contains("fichaganador")) {
-                ganador__text.textContent = "Ha ganado el color: Verde"
+                ganador__h2.textContent = "Game Over"
+                ganador__text.textContent = "Ha ganado la ficha verde"
                 ganador__text.style.color = "#00FE0A";
             }
     }
